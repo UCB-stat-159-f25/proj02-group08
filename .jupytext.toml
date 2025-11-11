@@ -1,0 +1,7 @@
+###
+# Reference 
+# - https://jupytext.readthedocs.io/en/latest/config.html
+###
+
+# Pair ipynb notebooks to py:percent text notebooks
+formats = "ipynb,py:percent"
