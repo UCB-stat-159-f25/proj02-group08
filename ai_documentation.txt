@@ -1,0 +1,39 @@
+[nlp-P01.ipynb for Part 01 of proj02-nlp.ipynb]
+
+PROMPT:
+
+OUTPUT:
+
+
+
+
+------------------------------------------------
+[nlp-P02.ipynb for Part 02 of proj02-nlp.ipynb]
+
+PROMPT:
+
+OUTPUT:
+
+
+
+
+------------------------------------------------
+[nlp-P03.ipynb for Part 03 of proj02-nlp.ipynb]
+
+PROMPT:
+
+OUTPUT:
+
+
+
+
+------------------------------------------------
+[nlp-P04.ipynb for Part 04 of proj02-nlp.ipynb]
+
+PROMPT:
+
+OUTPUT:
+
+
+
+
