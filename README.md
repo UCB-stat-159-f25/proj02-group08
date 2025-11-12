@@ -1,6 +1,7 @@
 # Project 02 - TODO - Next Steps: Cleanup README.md and Convert to GitHub Issues
 Template repository for Project 2, Stat 159/259 Fall 2025
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-f25/proj02-group08/HEAD)
 
 ## 01. Environment Setup
 
