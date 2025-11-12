@@ -213,11 +213,14 @@ doc-contribution-statement:
 		TEAM MEMBER NAME(S) - PERCENT CONTRIBUTION:
 	EOF
 
-doc-myst-site-initialize:
+doc-myst-site-init:
 	myst init
 
+doc-myst-site-init-toc:
+	myst init --write-toc
+
 .PHONY: doc-ai-documentation doc-contribution-statement \
-	doc-myst-site-initialize
+	doc-myst-site-init doc-myst-site-init-toc
 
 
 ###
@@ -276,7 +279,8 @@ help:
 	@echo "05. Documentation targets:"
 	@echo "  doc-ai-documentation       - Generate ai_documentation.txt from template"
 	@echo "  doc-contribution-statement - Generate contribution_statement.md from template"
-	@echo "  doc-myst-site-initialize    - Generate and Initialize MyST site"
+	@echo "  doc-myst-site-init         - Generate and Initialize MyST site"
+	@echo "  doc-myst-site-init-toc     - Generate and Initialize MyST site - Table of Contents"
 	@echo ""
 	@echo "Appendix Aa. General E2E targets:"
 	@echo "  all                        - Run all tasks"
