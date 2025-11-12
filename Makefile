@@ -219,8 +219,11 @@ doc-myst-site-init:
 doc-myst-site-init-toc:
 	myst init --write-toc
 
+doc-myst-site-init-ghpages:
+	myst init --gh-pages
+
 .PHONY: doc-ai-documentation doc-contribution-statement \
-	doc-myst-site-init doc-myst-site-init-toc
+	doc-myst-site-init doc-myst-site-init-toc doc-myst-site-init-ghpages
 
 
 ###
@@ -281,6 +284,7 @@ help:
 	@echo "  doc-contribution-statement - Generate contribution_statement.md from template"
 	@echo "  doc-myst-site-init         - Generate and Initialize MyST site"
 	@echo "  doc-myst-site-init-toc     - Generate and Initialize MyST site - Table of Contents"
+	@echo "  doc-myst-site-init-ghpages - Generate and Initialize MyST site - Github Pages"
 	@echo ""
 	@echo "Appendix Aa. General E2E targets:"
 	@echo "  all                        - Run all tasks"
