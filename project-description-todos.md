@@ -162,7 +162,7 @@ When running your analyses and making plots, it may be useful to save intermedia
 - [ ] Perform lemmatization (prefer lemmas for analysis)
 - [ ] Compute frequency tables (most common lemmas)
 - [ ] Apply TF-IDF vectorization (`sklearn.TfidfVectorizer`)
-- [ ] Save vectorized matrix to `/data/vectorized/tfidf_matrix.pkl`
+- [ ] Save vectorized matrix to `/data/vectorized/`
 
 ---
 
