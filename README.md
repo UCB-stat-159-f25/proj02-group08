@@ -53,32 +53,39 @@ Installed kernelspec sotu in /home/jovyan/.local/share/jupyter/kernels/sotu
 
 ### NOTE - TODO: Consolidate this in the Makefile - DONE!
 ```bash
-(sotu)> tree -L 3 .
+(sotu)>  tree -L 2 .                                                             
 .
 ├── ai_documentation.txt
+├── _build
+│   ├── html
+│   ├── site
+│   └── templates
 ├── code
 │   ├── __init__.py
 │   ├── part01.py
 │   ├── part02.py
 │   ├── part03.py
-│   └── part04.py
+│   ├── part04.py
+│   └── __pycache__
+├── contribution_statement.md
 ├── data
 │   ├── 00_raw
-│   │   └── SOTU.csv
 │   ├── 01_processed
 │   └── 02_vectorized
 ├── docs
 ├── environment.yml
-├── jupytext.toml
 ├── Makefile
 ├── misc
+│   ├── __init__.py
 │   ├── proj02-nlp-BACKUP.ipynb
 │   ├── proj02-nlp.ipynb
 │   ├── proj02-nlp.pdf
 │   ├── proj02-nlp.py
 │   ├── testing123.ipynb
 │   └── testing123.py
+├── myst.yml
 ├── notebooks
+│   ├── __init__.py
 │   ├── nlp-P01.ipynb
 │   ├── nlp-P01.py
 │   ├── nlp-P02.ipynb
@@ -93,7 +100,7 @@ Installed kernelspec sotu in /home/jovyan/.local/share/jupyter/kernels/sotu
 ├── README.md
 └── tests
 
-11 directories, 27 files
+16 directories, 29 files
 ```
 
 ## 04. Notebook Management with Jupytext
