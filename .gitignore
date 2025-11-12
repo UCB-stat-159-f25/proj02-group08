@@ -394,3 +394,9 @@ $RECYCLE.BIN/
 *.lnk
 
 
+###
+# MyST
+###
+
+# MyST build outputs
+_build
