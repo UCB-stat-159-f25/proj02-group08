@@ -8,7 +8,7 @@ SHELL = /bin/bash
 
 
 ###
-# 01. Environment Setup - TODO: Refactor to consolidate and work with .ONESHELL above
+# 01. Environment Management - TODO: Refactor to consolidate and work with .ONESHELL above
 ###
 ENV_NAME=sotu
 
