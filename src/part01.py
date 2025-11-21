@@ -37,6 +37,22 @@ def process_speeches_using_spacy_nlp(
 ) -> None:
     pass
 
-def save_processed_data(
-    data: Union[pd.DataFrame, pd.Series]
-) -> 
+def save_the_processed_data_to_csv(
+    data: Union[pd.DataFrame, pd.Series],
+    filepath: Union[str, pl.Path],
+) -> None:
+
+    # Convert Series to DataFrame
+    if isinstance(data, pd.Series):
+        data_to_save: pd.DataFrame = data.to_frame()
+    else:
+        data_to_save: pd.DataFrame = data
+
+    data_to_save.to_csv(filepath, index=False)
+
+
+def save_the_vectorized_data_to_csv(
+    data_vectorized: 
+    filepath: Union[str, pl.Path],
+) -> None:
+    pass
