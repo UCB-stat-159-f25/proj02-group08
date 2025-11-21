@@ -27,14 +27,20 @@ STAT     = "STAT_159_259"
 PROJ_GRP = "proj02-group08"
 
 DIR_CODE            = HOME / PROJECTS / STAT / PROJ_GRP / "code"
+
 DIR_DATA            = HOME / PROJECTS / STAT / PROJ_GRP / "data" 
 DIR_DATA_RAW        = DIR_DATA / "00_raw"
 DIR_DATA_PROCESSED  = DIR_DATA / "01_processed"
 DIR_DATA_VECTORIZED = DIR_DATA / "02_vectorized"
+
 DIR_DOCS            = HOME / PROJECTS / STAT / PROJ_GRP / "docs"
+
 DIR_MISC            = HOME / PROJECTS / STAT / PROJ_GRP / "misc"
+
 DIR_NOTEBOOKS       = HOME / PROJECTS / STAT / PROJ_GRP / "notebooks"
+
 DIR_OUTPUTS         = HOME / PROJECTS / STAT / PROJ_GRP / "outputs"
+
 DIR_TESTS           = HOME / PROJECTS / STAT / PROJ_GRP / "tests"
 
 CSV_SOTU = "SOTU.csv"
@@ -43,7 +49,7 @@ CSV_SOTU = "SOTU.csv"
 # Plots
 ###
 
-PLOT_STYLE="seaborn-v0_8-dark"
+PLOT_STYLE_SEABORN="seaborn-v0_8-dark"
 
 def plot_style(
     style: str="seaborn-v0_8-dark",
