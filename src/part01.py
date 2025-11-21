@@ -55,4 +55,5 @@ def save_the_vectorized_data_to_csv(
     data_vectorized: 
     filepath: Union[str, pl.Path],
 ) -> None:
-    pass
+
+    # 
