@@ -4,8 +4,19 @@ PROMPT:
 OUTPUT:
 
 [nlp-P02.ipynb for Part 02 of proj02-nlp.ipynb]
-PROMPT:
-OUTPUT:
+PROMPT: I am getting this error on Jupyter Datahub: (nlp-P02)jupyter-ckshimazaki[proj02-group08]> python -m spacy download en_core_web_sm /srv/conda/envs/notebook/bin/python: No module named spacy How do I resolve it 
+OUTPUT: You’re getting:
+No module named spacy
+This means your conda environment inside Datahub does NOT have spaCy installed, even though the project PDF assumes it.
+This is very normal on Datahub — you just need to install spaCy inside your current environment.
+Here’s exactly what to do. ✅ Step 1 — Install spaCy
+Run this in the Datahub terminal (the same one where you saw the error):
+pip install spacy
+This may take ~1–2 minutes.✅ Step 2 — Download the language model
+After spaCy installs successfully, run:
+python -m spacy download en_core_web_sm
+You should now see something like:
+✔ Download and installation successful
 
 [nlp-P03.ipynb for Part 03 of proj02-nlp.ipynb]
 PROMPT:
@@ -14,3 +25,4 @@ OUTPUT:
 [nlp-P04.ipynb for Part 04 of proj02-nlp.ipynb]
 PROMPT:
 OUTPUT:
+
