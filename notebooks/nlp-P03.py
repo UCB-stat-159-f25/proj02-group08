@@ -1,7 +1,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: py:percent,ipynb
+#     formats: ipynb:percent,py:percent
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -14,13 +14,10 @@
 # ---
 
 # %% [markdown]
-# # Project 2: Reproducibility in Natural Language Processing
-#
+# # Project 2  Part 3: Advanced Text Processing - LDA and BERTopic Topic Modeling (20 pts)
 #
 
 # %% [markdown]
-# ## Part 3: Advanced Text Processing - LDA and BERTopic Topic Modeling (20 pts)
-#
 # **Resources:**
 # - LDA:
 #     - https://medium.com/sayahfares19/text-analysis-topic-modelling-with-spacy-gensim-4cd92ef06e06 

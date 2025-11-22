@@ -36,6 +36,14 @@
 # ### Read Data
 
 # %%
+####################
+## MOVE THIS BLOCK TO part00_utils_visuals.py
+####################
+
+####################
+## CALL THIS BLOCK TO part00_utils_visuals.py
+####################
+
 # imports
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -45,6 +53,14 @@ plt.style.use('seaborn-v0_8-dark')
 
 
 # %%
+####################
+## MOVE THIS BLOCK TO part00_utils_visuals.py
+####################
+
+####################
+## CALL THIS BLOCK TO part00_utils_visuals.py
+####################
+
 ###
 # Types
 ###
@@ -57,10 +73,10 @@ import typing as ty
 # from pathlib import Path 
 import pathlib as pl
 
-HOME     = pl.Path.home()
-PROJECTS = "Projects"
-STAT     = "STAT_159_259"
-PROJ_GRP = "proj02-group08"
+HOME                = pl.Path.home()
+PROJECTS            = "Projects"
+STAT                = "STAT_159_259"
+PROJ_GRP            = "proj02-group08"
 
 DIR_CODE            = HOME / PROJECTS / STAT / PROJ_GRP / "code"
 DIR_DATA            = HOME / PROJECTS / STAT / PROJ_GRP / "data" 
@@ -92,6 +108,14 @@ def plot_settings_for_figure_size(
 plot_settings_for_figure_size(XDIMENSION, YDIMENSION)
 
 # %%
+####################
+## MOVE THIS BLOCK TO part00_utils_visuals.py
+####################
+
+####################
+## CALL THIS BLOCK TO part00_utils_visuals.py
+####################
+
 # read in SOTU.csv using pandas, name the variable `sou` for simplicity
 # the below cell is what the output should look like
 
@@ -116,8 +140,11 @@ sou
 number_speeches_per_president = sou["President"].value_counts(sort=False)
 number_speeches_per_president
 
-# %%
 
+# %%
+####################
+## MOVE THIS BLOCK TO part01.py
+####################
 
 def plot_number_speeches_per(
     series: pd.Series,
@@ -144,8 +171,12 @@ def plot_number_speeches_per(
     plt.show()
 
 
-
 # %%
+####################
+## CALL THIS BLOCK from part01.py
+####################
+
+
 # Plot 
 # Hint - use the .plot() method for Pandas Series, make sure all presidents show up on x-axis
 
@@ -169,6 +200,10 @@ number_speeches_per_year = sou["Year"].value_counts(sort=False)
 number_speeches_per_year
 
 # %%
+####################
+## CALL THIS BLOCK from part01.py
+####################
+
 plot_number_speeches_per(
     series=number_speeches_per_year, 
     kind_of_plot="line",
@@ -198,6 +233,10 @@ years
 
 
 # %%
+####################
+## MOVE THIS BLOCK TO part01.py
+####################
+
 # Hint: try seaborn.rugplot()
 # sns.scatterplot(data=sou, x="Word Count", y="Year")
 # sns.rugplot(data=sou, x="Word Count", y="Year")
@@ -225,6 +264,10 @@ def plot_word_count_distribution_per(
     # fig.tight_layout()
     # return fig
 
+####################
+## CALL THIS BLOCK from part01.py
+####################
+
 plot_word_count_distribution_per(
     dataframe=sou,
     title="Speech Year Versus Word Count",
@@ -248,6 +291,10 @@ word_count_distribution_per_president = sou\
 word_count_distribution_per_president
 
 # %%
+####################
+## CALL THIS BLOCK from part01.py
+####################
+
 # TODO: adjust this plot. The arrangement is not completely correct.
 
 plot_number_speeches_per(
@@ -259,7 +306,3 @@ plot_number_speeches_per(
     figsize=(XDIMENSION, YDIMENSION)
 )
 
-
-# %%
-
-# %%

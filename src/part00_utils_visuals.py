@@ -7,8 +7,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-
-
 ###
 # Types
 ###
@@ -21,10 +19,10 @@ import typing as ty
 # from pathlib import Path 
 import pathlib as pl
 
-HOME     = pl.Path.home()
-PROJECTS = "Projects"
-STAT     = "STAT_159_259"
-PROJ_GRP = "proj02-group08"
+HOME                = pl.Path.home()
+PROJECTS            = "Projects"
+STAT                = "STAT_159_259"
+PROJ_GRP            = "proj02-group08"
 
 DIR_CODE            = HOME / PROJECTS / STAT / PROJ_GRP / "code"
 

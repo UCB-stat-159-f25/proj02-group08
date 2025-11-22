@@ -1,7 +1,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: py:percent,ipynb
+#     formats: ipynb:percent,py:percent
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -14,13 +14,11 @@
 # ---
 
 # %% [markdown]
-# # Project 2: Reproducibility in Natural Language Processing
+# # Project 2 - Part 4: Choose your own advecnture! (7 Points; Optional for Extra Credit)
 #
 #
 
 # %% [markdown]
-# ## Part 4: Choose your own advecnture! (7 Points; Optional for Extra Credit)
-#
 # This section is open ended and your chance to explare any advanced analysis. Please perform any additional analysis you find interesting! Suggested analyses (only do one max):
 #
 # - Topic evolution over time - see https://maartengr.github.io/BERTopic/getting_started/topicsovertime/topicsovertime.html#visualization 
@@ -29,3 +27,5 @@
 # -  Named Entity Recognition - which entity types are most common in speeches? What are the most common words for each entity type - see https://spacy.io/usage/linguistic-features#named-entities 
 # - Classification - can you build a classifier to detect democratic versus republican state of the union speeches from 1980-2024 - see https://scikit-learn.org/stable/auto_examples/text/plot_document_classification_20newsgroups.html#sphx-glr-auto-examples-text-plot-document-classification-20newsgroups-py 
 #
+
+# %%
