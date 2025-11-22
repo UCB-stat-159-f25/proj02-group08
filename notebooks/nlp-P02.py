@@ -423,13 +423,13 @@ save_the_processed_data_to_csv(data=step09_df_raw_docs, filepath=part00.DIR_DATA
 
 # modeltype: Embedding Model aka Featurization Model aka Vectorization Model
 vectorizer = TfidfVectorizer()
-step10_vectorized_raw_docs = vectorizer.fit_transform(raw_docs)
+step10_vectorized_raw_docs_tfidf = vectorizer.fit_transform(raw_docs)
 
 # matrixtype: Compressed Sparse Row Matrix
-step10_vectorized_raw_docs
+step10_vectorized_raw_docs_tfidf
 
 # %%
-step10_vectorized_raw_docs.shape
+step10_vectorized_raw_docs_tfidf.shape
 
 # %%
 step10_feature_names = vectorizer.get_feature_names_out()
@@ -459,7 +459,7 @@ def save_the_vectorized_data_to_csv(
     return df
 
 
-save_the_vectorized_data_to_csv(data_tfidf_matrix=step10_vectorized_raw_docs, data_tfidf_feature_names=step10_feature_names, filepath = part00.DIR_DATA_VECTORIZED / "step10_vectorized_raw_docs.csv")
+save_the_vectorized_data_to_csv(data_tfidf_matrix=step10_vectorized_raw_docs_tfidf, data_tfidf_feature_names=step10_feature_names, filepath = part00.DIR_DATA_VECTORIZED / "step10_vectorized_raw_docs_tfidf.csv")
 
 # %% [markdown]
 # #### Plot Speeches
@@ -479,7 +479,7 @@ step11_pca = PCA(n_components=2)
 
 # Step 2: Create a new dataframe where each row is a speech, and each column is a projection onto
 # one of the two principal components
-step11_pca_result = step11_pca.fit_transform(step10_vectorized_raw_docs)
+step11_pca_result = step11_pca.fit_transform(step10_vectorized_raw_docs_tfidf)
 step11_pca_result;
 
 step11_pca_result_df = pd.DataFrame(
@@ -487,6 +487,8 @@ step11_pca_result_df = pd.DataFrame(
     columns=['PC1', 'PC2']
 )
 step11_pca_result_df
+save_the_vectorized_data_to_csv(
+
 
 # Plot Data Visualization (Matplotlib)
 plt.figure(figsize=(12, 8))
@@ -529,7 +531,20 @@ idf_score = [idf_scores[num] for num in word_nums]  # get their IDF score by usi
 idf_score
 
 # %%
-tf_idf =  # get the tf_idf score for the first speech
+type(step10_vectorized_raw_docs_tfidf[0])
+first_speech_vector_tfidf = step10_vectorized_raw_docs_tfidf[0]
+first_speech_vector_tfidf
+
+# tf_idf = ... # get the tf_idf score for the first speech
+tf_idf = [first_speech_vector_tfidf[0, idx] for idx in word_nums]
+tf_idf
 
 # %%
-pd.DataFrame({"Word": word_list, "IDF Score": idf_score, "TF-IDF Score": tf_idf})
+step12_word_idfscore_tfidfscore = pd.DataFrame({"Word": word_list, "IDF Score": idf_score, "TF-IDF Score": tf_idf})
+step12_feature_names = np.array(step12_word_idfscore_tfidfscore.columns)
+
+# TODO
+# save_the_vectorized_data_to_csv(data_tfidf_matrix=step12_word_idfscore_tfidfscore, data_tfidf_feature_names=step12_feature_names, filepath = part00.DIR_DATA_VECTORIZED / "step12_word_idfscore_tfidfscore.csv")
+
+step12_word_idfscore_tfidfscore
+
