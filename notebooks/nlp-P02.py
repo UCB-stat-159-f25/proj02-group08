@@ -1,7 +1,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: py:percent,ipynb
+#     formats: ipynb:percent,py:percent
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -14,7 +14,8 @@
 # ---
 
 # %% [markdown]
-# # Project 2: Reproducibility in Natural Language Processing
+# # Project 2 - Part 2: Simple Text Processing - Tokenization, Lemmatization, Word Frequency, Vectorization (20 pts)
+#
 #
 #
 
@@ -33,13 +34,19 @@ plt.style.use('seaborn-v0_8-dark')
 # read in SOTU.csv using pandas, name the variable `sou` for simplicity
 # the below cell is what the output should look like
 
+from src import part00_utils_visuals as part00
+# import src.part00_utils_visuals as part00
+
+part00.plot_style(style=part00.PLOT_STYLE_SEABORN)
+
+sou = part00.pd.read_csv(part00.DIR_DATA_RAW / part00.CSV_SOTU)
+
 
 # %%
 sou
 
 
 # %% [markdown]
-# ## Part 2: Simple Text Processing - Tokenization, Lemmatization, Word Frequency, Vectorization (20 pts)
 #
 # Now we will start working on simple text processing using the `SpaCy` package and the same dataset as Part 1. The package should already be included in the `environment.yml`. However, we will also need to download `en_core_web_sm`, an English language text processing model. To do this, while having your `sotu` environment activated, run the following:
 #
@@ -80,6 +87,34 @@ sou
 #
 #
 
+# %%
+# TODO: REMOVE - DOES NOT WORK!
+
+# # !python -m spacy download en_core_web_sm
+
+# %%
+# TODO: REMOVE - DOES NOT WORK!
+
+# from IPython import get_ipython
+
+# # Run the command
+# ipython = get_ipython()
+# ipython.system('python -m spacy download en_core_web_sm')
+
+# %%
+# TODO: MIGRATE to part01.py - WORKS!
+
+# import spacy 
+
+# spacy.cli.download("en_core_web_sm")
+
+# %%
+# TODO: MIGRATE to part01.py - WORKS!
+
+# import sys
+# # Use the same Python that's running the notebook
+# # !{sys.executable} -m spacy download en_core_web_sm
+
 # %% [markdown]
 # ### Processing Speeches with SpaCy
 #
@@ -90,16 +125,63 @@ import spacy
 from tqdm import tqdm
 from collections import Counter
 
+# %%
+spacy.cli.download("en_core_web_sm")
+
+# %%
 nlp = spacy.load("en_core_web_sm")
+
+# %%
+nlp.lang
+
+# %%
+import pandas as pd
+from typing import Union, Optional
+import pathlib as pl
+
+def save_the_processed_data_to_csv(
+    data: Union[pd.DataFrame, pd.Series],
+    filepath: Union[str, pl.Path],
+) -> None:
+
+    # Convert Series to DataFrame
+    if isinstance(data, pd.Series):
+        data_to_save: pd.DataFrame = data.to_frame()
+    else:
+        data_to_save: pd.DataFrame = data
+
+    data_to_save.to_csv(filepath, index=False)
 
 
 # %%
 # subset the speech dataframe for speeches from 2000 and onwards
+# Filter for a range of years
+sou_step00_year_2000_and_above = sou[sou['Year'] >= 2000]
+save_the_processed_data_to_csv(data=sou_step00_year_2000_and_above, filepath=part00.DIR_DATA_PROCESSED / "sou_step00_year_2000_and_above.csv")
+sou_step00_year_2000_and_above
 
 # %%
 # Process each speeches using the 'nlp' function
 # Hint - loop through each speech and pass the text into the nlp function above, storing the output in a list
 # should take about 30 seconds to process
+
+sou_step01_year_2000_and_above_text = sou_step00_year_2000_and_above["Text"]
+save_the_processed_data_to_csv(data=sou_step01_year_2000_and_above_text, filepath=part00.DIR_DATA_PROCESSED / "sou_step01_year_2000_and_above_text.csv")
+sou_step01_year_2000_and_above_text
+
+# %%
+sou_step02_year_2000_above_text_nlp = [nlp(speech) for speech in tqdm(sou_step01_year_2000_and_above_text)]
+# save_the_processed_data_to_csv(data=sou_step02_year_2000_above_text_nlp, filepath=part00.DIR_DATA_PROCESSED / "sou_step02_year_2000_above_text_nlp.csv")
+sou_step02_year_2000_above_text_nlp;
+
+# %%
+type(sou_step02_year_2000_above_text_nlp[0])
+
+# %%
+# type(sou_step02_year_2000_above_text_nlp[0]) --> spacy.tokens.doc.Doc
+# type(sou_step02_year_2000_above_text_nlp) --> list
+
+# TODO: save tokens using `from spacy.tokens import DocBin`
 
 # %% [markdown]
 # ### Analyze Tokens vs Lemmas
@@ -109,10 +191,54 @@ nlp = spacy.load("en_core_web_sm")
 # Create a list of tokens across all speeches that are not spaces, stopwords, or punctuation. Make each token lowercase as well. *Hint: each element of the list we just created are themselves lists of tokens. Token objects have attributes `is_stop`, `is_punct`, and `is_space`.*
 
 # %%
+# sou_step03_year_2000_above_tokens = [doc for doc in sou_step02_year_2000_above_text_nlp]
+# sou_step03_year_2000_above_tokens = [token for doc in sou_step02_year_2000_above_text_nlp for token in doc]
+# sou_step03_year_2000_above_tokens = [token.text.lower() for doc in sou_step02_year_2000_above_text_nlp for token in doc]
+# sou_step03_year_2000_above_tokens = [token.text_.lower() for doc in sou_step02_year_2000_above_text_nlp for token in doc 
+#                                      if not token.is_stop]
+# sou_step03_year_2000_above_tokens = [token.text.lower() for doc in sou_step02_year_2000_above_text_nlp for token in doc 
+#                                      if not token.is_stop and not token.is_punct]
+# sou_step03_year_2000_above_tokens = [token.text.lower() for doc in sou_step02_year_2000_above_text_nlp for token in doc 
+#                                      if not token.is_stop and not token.is_punct and not token.is_space]
+sou_step03_year_2000_above_tokens = [token.text.lower() for doc in sou_step02_year_2000_above_text_nlp for token in doc \
+                                     if not token.is_stop and not token.is_punct and not token.is_space]
+# TODO: save to data/01_processed
+sou_step03_year_2000_above_tokens;
 
 # %%
 # print top 20 tokens
 # Hint - use Counter, and one of the Counter object's methods to display the top 20
+
+sou_step04_year_2000_above_tokens_count = Counter(sou_step03_year_2000_above_tokens)
+sou_step04_year_2000_above_tokens_count
+
+# TODO: save to data/01_processed
+sou_step05_year_2000_above_tokens_top20 = sou_step04_year_2000_above_tokens_count.most_common(20)
+
+
+# %%
+type(sou_step04_year_2000_above_tokens_count), type(sou_step05_year_2000_above_tokens_top20)
+
+# %%
+sou_step05_year_2000_above_tokens_top20 = pd.DataFrame(sou_step05_year_2000_above_tokens_top20, columns=["Word", "Count"])
+
+# %%
+type(sou_step04_year_2000_above_tokens_count), type(sou_step05_year_2000_above_tokens_top20)
+
+# %%
+import seaborn as sns
+
+def plot_top(
+    token_counts: Counter,
+    n: int = 20,
+) -> None:
+    fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(15,10))
+    # part00.sns.barplot(token_counts, x="Word", y="Count", ax=ax)
+    sns.barplot(token_counts, x="Word", y="Count", ax=ax)
+    ax.set_title(f"Real News Top {n} Frequent Words")
+    ax.tick_params(axis='x', labelrotation=45)
+
+plot_top(token_counts=sou_step05_year_2000_above_tokens_top20)
 
 # %% [markdown]
 # #### Lemma List
@@ -120,6 +246,36 @@ nlp = spacy.load("en_core_web_sm")
 # Do the same as above, but for lemmas. *Hint: recall lemmas are components of words. Each token should have an attribute to extract the lemma.*
 
 # %%
+# sou_step06_year_2000_above_lemmas = [doc for doc in sou_step02_year_2000_above_text_nlp]
+# sou_step06_year_2000_above_lemmas = [token for doc in sou_step02_year_2000_above_text_nlp for token in doc]
+# sou_step06_year_2000_above_lemmas = [token.lemma_.lower() for doc in sou_step02_year_2000_above_text_nlp for token in doc]
+# sou_step06_year_2000_above_lemmas = [token.lemma_.lower() for doc in sou_step02_year_2000_above_text_nlp for token in doc 
+#                                      if not token.is_stop]
+# sou_step06_year_2000_above_lemmas = [token.lemma_.lower() for doc in sou_step02_year_2000_above_text_nlp for token in doc 
+#                                      if not token.is_stop and not token.is_punct]
+# sou_step06_year_2000_above_lemmas = [token.lemma_.lower() for doc in sou_step02_year_2000_above_text_nlp for token in doc 
+#                                      if not token.is_stop and not token.is_punct and not token.is_space]
+sou_step06_year_2000_above_lemmas = [token.lemma_.lower() for doc in sou_step02_year_2000_above_text_nlp for token in doc \
+                                     if not token.is_stop and not token.is_punct and not token.is_space]
+# TODO: save to data/01_processed
+sou_step06_year_2000_above_lemmas;
+
+# %%
+sou_step07_year_2000_above_lemmas_count = Counter(sou_step06_year_2000_above_lemmas)
+sou_step07_year_2000_above_lemmas_count
+
+# TODO: save to data/01_processed
+sou_step08_year_2000_above_lemmas_top20 = sou_step07_year_2000_above_lemmas_count.most_common(20)
+sou_step08_year_2000_above_lemmas_top20 = pd.DataFrame(sou_step08_year_2000_above_lemmas_top20, columns=["Word", "Count"])
+
+# %% [markdown]
+# ### Token versus Lemma Plot
+
+# %%
+plot_top(token_counts=sou_step05_year_2000_above_tokens_top20)
+
+plot_top(token_counts=sou_step08_year_2000_above_lemmas_top20)
+
 
 # %% [markdown]
 # #### Token versus Lemma Comparison
@@ -127,6 +283,9 @@ nlp = spacy.load("en_core_web_sm")
 # What do you notice about the top tokens versus the top lemmas? 
 # Consider two tokens - "year" and "years" - how do their counts compare to the lemma "year"?
 # What about the lemma "child"?
+
+# %%
+# TODO - Answer here?
 
 # %% [markdown]
 # ### Common Words
@@ -149,23 +308,54 @@ nlp = spacy.load("en_core_web_sm")
 # - count the top n lemmas
 
 # %%
-def get_most_common_words(df, year, n=25):
+def get_most_common_words(
+    df: pd.DataFrame, 
+    year: int, 
+    n:int = 25
+) -> Counter:
+# ) -> pd.DataFrame:
+    
     """
     Processes the SOTU speech for a given year and returns
     the most common non-stopword/punctuation lemmas.
     """
 
     # Step 1: Subset df
-
+    df_subset = df[df["Year"] == year]
+    
     # Step 2: Process the text with spaCy
+    # spacy.cli.download("en_core_web_sm")
+    # nlp = spacy.load("en_core_web_sm")
+    # nlp.lang
+    df_subset_text = df_subset["Text"]
+    df_subset_nlp = [nlp(speech) for speech in tqdm(df_subset_text)]
+    # tokens = [token.text.lower() for doc in df_subset_nlp for token in doc if not token.is_stop and not token.is_punct and not token.is_space]
+    lemmas = [token.lemma_.lower() for doc in df_subset_nlp for token in doc if not token.is_stop and not token.is_punct and not token.is_space] 
     
     # Step 3: Get lemmas
+    lemma_counts = Counter(lemmas).most_common(n)
+    # df_lemma_counts = pd.DataFrame(lemma_counts, columns=["Word", "Count"])
     
-    return ...
-
+    
+    return lemma_counts
 
 # %%
 # test it on 2024
+
+top25_in_2024 = get_most_common_words(df=sou, year=2024, n=25)
+top25_in_2024
+
+# %%
+type(top25_in_2024)
+
+# %%
+df_top25_in_2024 = pd.DataFrame(top25_in_2024, columns=["Word", "Count"])
+
+# %%
+type(df_top25_in_2024)
+
+# %%
+plot_top(df_top25_in_2024, n=25)
 
 # %% [markdown]
 # #### Compare 2023 to 2017
@@ -173,8 +363,10 @@ def get_most_common_words(df, year, n=25):
 # Run your function from the previous step to get the top 20 words for 2017 and 2023. Plot the words and their frequencies in a barchart and replicate the figure below.
 
 # %%
-words_2023 = ...
-words_2017 = ...
+words_2023 =  get_most_common_words(df=sou, year=2023, n=25)
+
+words_2017 =  get_most_common_words(df=sou, year=2017, n=25)
+
 
 # %%
 words_2023
@@ -185,11 +377,21 @@ words_2017
 # %%
 # Hint - put the words and counts into a pd Dataframe for better structure
 # and to make plotting easier
-df_2017 = ...
-df_2023 = ...
+df_2017 = pd.DataFrame(words_2017, columns=["Word", "Count"])
+df_2023 = pd.DataFrame(words_2023, columns=["Word", "Count"])
+
+# %%
+df_2017
+
+# %%
+df_2023
 
 # %%
 # Hint - use seaborn, subplots, and rotate tick labels
+
+plot_top(df_2017, n=25)
+
+plot_top(df_2023, n=25)
 
 # %% [markdown]
 # ### TF-IDF Vectorization
@@ -208,12 +410,56 @@ from sklearn.decomposition import PCA
 # %%
 # you may use this as input to fit the TF-IDF vectorizer
 raw_docs = sou["Text"].to_list()
-
-# %%
-# Hint - use fit_transform for vectorizer and PCA
+step09_df_raw_docs = pd.DataFrame(raw_docs)
+save_the_processed_data_to_csv(data=step09_df_raw_docs, filepath=part00.DIR_DATA_VECTORIZED / "step09_raw_docs.csv")
 
 # %% [markdown]
 # The output of `fit_transform()` will be a matrix where each row corresponds to a speech, each column corresponds to a word in the corpus of speeches, and the value is the TF-IDF score which measures the importance of that word in that speech, relative to the rest of the speeches.
+
+# %%
+# Hint - use fit_transform for vectorizer and PCA
+# Reference:
+# - https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html
+
+# modeltype: Embedding Model aka Featurization Model aka Vectorization Model
+vectorizer = TfidfVectorizer()
+step10_vectorized_raw_docs = vectorizer.fit_transform(raw_docs)
+
+# matrixtype: Compressed Sparse Row Matrix
+step10_vectorized_raw_docs
+
+# %%
+step10_vectorized_raw_docs.shape
+
+# %%
+step10_feature_names = vectorizer.get_feature_names_out()
+type(step10_feature_names)
+
+# %%
+import numpy as np
+
+def save_the_vectorized_data_to_csv(
+    data_tfidf_matrix: Union[pd.DataFrame, pd.Series],
+    data_tfidf_feature_names: np.ndarray,
+    filepath: Union[str, pl.Path],
+) -> None:
+    """
+        Convert TF-IDF to dense matrix and save as CSV (inefficient!)
+
+        NOTE: Only use this for small datasets.
+    """
+
+    # Convert the CSR matrix to a Dense Matrix
+    dense_matrix = data_tfidf_matrix.toarray()
+
+    # 
+    df = pd.DataFrame(dense_matrix, columns=data_tfidf_feature_names)
+    df.to_csv(f"{filepath}", index=False)
+
+    return df
+
+
+save_the_vectorized_data_to_csv(data_tfidf_matrix=step10_vectorized_raw_docs, data_tfidf_feature_names=step10_feature_names, filepath = part00.DIR_DATA_VECTORIZED / "step10_vectorized_raw_docs.csv")
 
 # %% [markdown]
 # #### Plot Speeches
@@ -222,16 +468,33 @@ raw_docs = sou["Text"].to_list()
 # - Second use seaborn heatmap with a log-scaled color axis to generate the second chart
 
 # %%
+# Hint - vectorized_docs is a sparse matrix whose rows are speeches and columns are tokens, with each
+# value being a TF-IDF score. Densify this array first, and then plot using seaborn.
+
+# %%
+# https://scikit-learn.org/0.17/modules/generated/sklearn.decomposition.PCA.html
+
 # Step 1: Set PCA to find first 2 principal components
+step11_pca = PCA(n_components=2)
 
 # Step 2: Create a new dataframe where each row is a speech, and each column is a projection onto
 # one of the two principal components
+step11_pca_result = step11_pca.fit_transform(step10_vectorized_raw_docs)
+step11_pca_result;
+
+step11_pca_result_df = pd.DataFrame(
+    data=step11_pca_result,
+    columns=['PC1', 'PC2']
+)
+step11_pca_result_df
 
 # Plot Data Visualization (Matplotlib)
+plt.figure(figsize=(12, 8))
+plt.scatter(step11_pca_result_df['PC1'], step11_pca_result_df['PC2'], alpha=0.7, s=25);
 
 # %%
-# Hint - vectorized_docs is a sparse matrix whose rows are speeches and columns are tokens, with each
-# value being a TF-IDF score. Densify this array first, and then plot using seaborn.
+plt.figure(figsize=(12, 8))
+sns.scatterplot(step11_pca_result_df, x="PC1", y="PC2");
 
 # %% [markdown]
 # #### Get the TF-IDF value for certain words and documents
@@ -249,13 +512,24 @@ word_list = ['year',
  'world'] # top ten most common words through whole corpus
 
 # %%
-word_nums = ... # get each word's index number using the .vocabular_ attributed of vectorizer
+# print("Learned vocabulary:", vectorizer.vocabulary_)
+vocab_dict = vectorizer.vocabulary_
+type(vocab_dict)
+vocab_dict.get(word_list[0])
 
 # %%
-idf_score = ... # get their IDF score by using .idf_ at the indices from the previous step
+word_nums = [vocab_dict.get(word) for word in word_list] # get each word's index number using the .vocabular_ attributed of vectorizer
+word_nums
 
 # %%
-tf_idf = ... # get the tf_idf score for the first speech
+idf_scores = vectorizer.idf_
+idf_scores
+
+idf_score = [idf_scores[num] for num in word_nums]  # get their IDF score by using .idf_ at the indices from the previous step
+idf_score
+
+# %%
+tf_idf =  # get the tf_idf score for the first speech
 
 # %%
 pd.DataFrame({"Word": word_list, "IDF Score": idf_score, "TF-IDF Score": tf_idf})
