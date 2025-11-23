@@ -18,11 +18,25 @@ env-create:
 env-update:
 	conda env update -f environment.yml --prune
 
+env-update-environment-yml:
+#	conda env export --from-history > environment.yml
+	conda env export --no-builds > environment.yml
+
 env-run-jupyterlab:
 	conda run -n $(ENV_NAME) jupyter lab
 
 env-list:
 	conda env list
+
+env-package-install:
+	@echo "Install new package into the environment:"
+	@echo "    conda install -c conda-forge -n [ENV_NAME] [PACKAGE_NAME(S)] -y"
+	@echo "    Example: conda install -c conda-forge -n sotu ipywidgets -y"
+
+env-package-check:
+	@echo "Check if new package is in the environment:"
+	@echo "    conda list -n [ENV_NAME] [PACKAGE_NAME(S)]"
+	@echo "    Example: conda list -n sotu ipywidgets "
 
 env-activate:
 	@echo "Run the following command manually to TURN ON the environment:"
@@ -34,7 +48,7 @@ env-deactivate:
 	@echo "    conda deactivate"
 #	conda deactivate
 
-.PHONY: env-create env-update env-run-jupyterlab env-list env-activate env-deactivate
+.PHONY: env-create env-update env-update-environment-yml env-run-jupyterlab env-list env-pacakge-install env-package-check env-activate env-deactivate
 
 
 ###
@@ -252,9 +266,12 @@ all:
 help:
 	@echo "01. Environment targets:"
 	@echo "  env-create                	- Create the environment from environment.yml"
-	@echo "  env-update                 - Update, install, and clean up packages"
+	@echo "  env-update                 - Update, install, and clean up packages INTO the environment"
+	@echo "  env-update-environment-yml - Update and save the environment packages INTO the environment.yml file"
 	@echo "  env-run-jupyterlab         - Launch JupyterLab using the environment"
 	@echo "  env-list                   - List all conda environments"
+	@echo "  env-package-install        - Install a package into an environment"
+	@echo "  env-package-check          - Check if a package is installed in an environment"
 	@echo "  env-activate               - Activate the 'sotu' environment"
 	@echo "  env-deactivate             - Deactivate the current environment"
 	@echo ""
