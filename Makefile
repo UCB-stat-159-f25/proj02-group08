@@ -116,33 +116,43 @@ DIR_NOTEBOOKS = notebooks
 
 nb-pair-all-py:
 	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp-P0{1..4}.py
+    # jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp_P0{1..4}.py
 
 nb-pair-all-ipynb:
 	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp-P0{1..4}.ipynb
+    # jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp_P0{1..4}.ipynb
 
 nb-pair-p01-py:
 	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp-P01.py
+    # jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp_P01.py
 
 nb-pair-p01-ipynb:
 	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp-P01.ipynb
+    # jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp_P01.ipynb
 
 nb-pair-p02-py:
 	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp-P02.py
+    # jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp_P02.py
 
 nb-pair-p02-ipynb:
 	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp-P02.ipynb
+    # jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp_P02.ipynb
 
 nb-pair-p03-py:
 	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp-P03.py
+    # jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp_P03.py
 
 nb-pair-p03-ipynb:
 	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp-P03.ipynb
+    # jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp_P03.ipynb
 
 nb-pair-p04-py:
 	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp-P04.py
+    # jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp_P04.py
 
 nb-pair-p04-ipynb:
 	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp-P04.ipynb
+    # jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp_P04.ipynb
 
 .PHONY: nb-pair-all-py nb-pair-all-ipynb nb-pair-p01-py nb-pair-p01-ipynb \
 	nb-pair-p02-py nb-pair-p02-ipynb nb-pair-p03-py nb-pair-p03-ipynb \
