@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import spacy
+import numpy as np
 import pandas as pd
 import pathlib as pl
 
@@ -52,8 +53,7 @@ def save_the_processed_data_to_csv(
 
 
 def save_the_vectorized_data_to_csv(
-    data_vectorized: 
+    data_vectorized: np.ndarray,
     filepath: Union[str, pl.Path],
 ) -> None:
-
-    # 
+    pass

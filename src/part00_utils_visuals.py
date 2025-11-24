@@ -19,27 +19,28 @@ import typing as ty
 # from pathlib import Path 
 import pathlib as pl
 
-HOME                = pl.Path.home()
-PROJECTS            = "Projects"
-STAT                = "STAT_159_259"
-PROJ_GRP            = "proj02-group08"
+HOME                   = pl.Path.home()
+PROJECTS               = "Projects"
+STAT                   = "STAT_159_259"
+PROJ_GRP               = "proj02-group08"
 
-DIR_CODE            = HOME / PROJECTS / STAT / PROJ_GRP / "code"
+DIR_CODE               = HOME / PROJECTS / STAT / PROJ_GRP / "code"
 
-DIR_DATA            = HOME / PROJECTS / STAT / PROJ_GRP / "data" 
-DIR_DATA_RAW        = DIR_DATA / "00_raw"
-DIR_DATA_PROCESSED  = DIR_DATA / "01_processed"
-DIR_DATA_VECTORIZED = DIR_DATA / "02_vectorized"
+DIR_DATA               = HOME / PROJECTS / STAT / PROJ_GRP / "data" 
+DIR_DATA_00_RAW        = DIR_DATA / "00_raw"
+DIR_DATA_01_PROCESSED  = DIR_DATA / "01_processed"
+DIR_DATA_02_VECTORIZED = DIR_DATA / "02_vectorized"
+DIR_DATA_03_LDA_BERT   = DIR_DATA / "03_processed_lda_bert"
 
-DIR_DOCS            = HOME / PROJECTS / STAT / PROJ_GRP / "docs"
+DIR_DOCS               = HOME / PROJECTS / STAT / PROJ_GRP / "docs"
 
-DIR_MISC            = HOME / PROJECTS / STAT / PROJ_GRP / "misc"
+DIR_MISC               = HOME / PROJECTS / STAT / PROJ_GRP / "misc"
 
-DIR_NOTEBOOKS       = HOME / PROJECTS / STAT / PROJ_GRP / "notebooks"
+DIR_NOTEBOOKS          = HOME / PROJECTS / STAT / PROJ_GRP / "notebooks"
 
-DIR_OUTPUTS         = HOME / PROJECTS / STAT / PROJ_GRP / "outputs"
+DIR_OUTPUTS            = HOME / PROJECTS / STAT / PROJ_GRP / "outputs"
 
-DIR_TESTS           = HOME / PROJECTS / STAT / PROJ_GRP / "tests"
+DIR_TESTS              = HOME / PROJECTS / STAT / PROJ_GRP / "tests"
 
 CSV_SOTU = "SOTU.csv"
 
