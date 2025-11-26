@@ -67,9 +67,11 @@ Ends: Bright orange/yellow
 Good for: Sequential data, similar to rocket but brighter
 
 [nlp-P03.ipynb for Part 03 of proj02-nlp.ipynb]
-PROMPT:
-OUTPUT:
-
+PROMPT:I activated my conda env but my notebook is not using it. How do I make my notebook recognize the environment as a kernel?
+OUTPUT: 
+To use your conda environment in Jupyter, first activate it in the terminal, then register it with:
+python -m ipykernel install --user --name sotu --display-name 'IPython - sotu'
+After that, open your notebook and switch to this kernel through Kernel → Change Kernel. This ensures the notebook uses your environment and the packages installed in it.
 [nlp-P04.ipynb for Part 04 of proj02-nlp.ipynb]
 PROMPT:
 OUTPUT:
