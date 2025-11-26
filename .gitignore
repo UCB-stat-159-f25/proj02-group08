@@ -2,8 +2,9 @@
 # Project Structure
 #####
 
-data/01_processed
-data/02_vectorized
+# data/01_processed
+# data/02_vectorized
+# data/03_processed_lda_bert
 
 #####
 # IDEs
