@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools >= 70"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "proj02-group08"
+authors = [
+  { name="01", email="author@example.com" },
+  { name="02", email="author@example.com" },
+  { name="03", email="author@example.com" },
+  { name="04", email="author@example.com" },
+]
+description = "A Python library for Project 02 by Group 08"
+readme = "README.md"
+
+requires-python = ">=3.10"
+dependencies = [
+    "tqdm",
+]
+
+license = "BSD-3-Clause"
+license-files = ["LICEN[CS]E*"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent"
+]
+
+keywords = ["project02", "group08", "proj02-group08"]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/UCB-stat-159-f25/proj02-group08"
+Issues = "https://github.com/UCB-stat-159-f25/proj02-group08/issues"
+
+[tool.setuptools]
+packages = ["proj02-group08"]
+
+[tool.setuptools.dynamic]
+version = {attr = "proj02-group08.__version__"}

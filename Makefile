@@ -18,11 +18,25 @@ env-create:
 env-update:
 	conda env update -f environment.yml --prune
 
+env-update-environment-yml:
+#	conda env export --from-history > environment.yml
+	conda env export --no-builds > environment.yml
+
 env-run-jupyterlab:
 	conda run -n $(ENV_NAME) jupyter lab
 
 env-list:
 	conda env list
+
+env-package-install:
+	@echo "Install new package into the environment:"
+	@echo "    conda install -c conda-forge -n [ENV_NAME] [PACKAGE_NAME(S)] -y"
+	@echo "    Example: conda install -c conda-forge -n sotu ipywidgets -y"
+
+env-package-check:
+	@echo "Check if new package is in the environment:"
+	@echo "    conda list -n [ENV_NAME] [PACKAGE_NAME(S)]"
+	@echo "    Example: conda list -n sotu ipywidgets "
 
 env-activate:
 	@echo "Run the following command manually to TURN ON the environment:"
@@ -34,7 +48,7 @@ env-deactivate:
 	@echo "    conda deactivate"
 #	conda deactivate
 
-.PHONY: env-create env-update env-run-jupyterlab env-list env-activate env-deactivate
+.PHONY: env-create env-update env-update-environment-yml env-run-jupyterlab env-list env-pacakge-install env-package-check env-activate env-deactivate
 
 
 ###
@@ -116,33 +130,43 @@ DIR_NOTEBOOKS = notebooks
 
 nb-pair-all-py:
 	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp-P0{1..4}.py
+    # jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp_P0{1..4}.py
 
 nb-pair-all-ipynb:
 	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp-P0{1..4}.ipynb
+    # jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp_P0{1..4}.ipynb
 
 nb-pair-p01-py:
 	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp-P01.py
+    # jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp_P01.py
 
 nb-pair-p01-ipynb:
 	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp-P01.ipynb
+    # jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp_P01.ipynb
 
 nb-pair-p02-py:
 	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp-P02.py
+    # jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp_P02.py
 
 nb-pair-p02-ipynb:
 	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp-P02.ipynb
+    # jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp_P02.ipynb
 
 nb-pair-p03-py:
 	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp-P03.py
+    # jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp_P03.py
 
 nb-pair-p03-ipynb:
 	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp-P03.ipynb
+    # jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp_P03.ipynb
 
 nb-pair-p04-py:
 	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp-P04.py
+    # jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/nlp_P04.py
 
 nb-pair-p04-ipynb:
 	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp-P04.ipynb
+    # jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/nlp_P04.ipynb
 
 .PHONY: nb-pair-all-py nb-pair-all-ipynb nb-pair-p01-py nb-pair-p01-ipynb \
 	nb-pair-p02-py nb-pair-p02-ipynb nb-pair-p03-py nb-pair-p03-ipynb \
@@ -242,9 +266,12 @@ all:
 help:
 	@echo "01. Environment targets:"
 	@echo "  env-create                	- Create the environment from environment.yml"
-	@echo "  env-update                 - Update, install, and clean up packages"
+	@echo "  env-update                 - Update, install, and clean up packages INTO the environment"
+	@echo "  env-update-environment-yml - Update and save the environment packages INTO the environment.yml file"
 	@echo "  env-run-jupyterlab         - Launch JupyterLab using the environment"
 	@echo "  env-list                   - List all conda environments"
+	@echo "  env-package-install        - Install a package into an environment"
+	@echo "  env-package-check          - Check if a package is installed in an environment"
 	@echo "  env-activate               - Activate the 'sotu' environment"
 	@echo "  env-deactivate             - Deactivate the current environment"
 	@echo ""
