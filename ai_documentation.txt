@@ -6,8 +6,65 @@ You just run: git pull
 Used AI to gramatically correct description of outputs. Insert comma etc. 
 
 [nlp-P02.ipynb for Part 02 of proj02-nlp.ipynb]
-PROMPT:
-OUTPUT:
+PROMPT: I am getting this error on Jupyter Datahub: (nlp-P02)jupyter-ckshimazaki[proj02-group08]> python -m spacy download en_core_web_sm /srv/conda/envs/notebook/bin/python: No module named spacy How do I resolve it 
+OUTPUT: You’re getting:
+No module named spacy
+This means your conda environment inside Datahub does NOT have spaCy installed, even though the project PDF assumes it.
+This is very normal on Datahub — you just need to install spaCy inside your current environment.
+Here’s exactly what to do. ✅ Step 1 — Install spaCy
+Run this in the Datahub terminal (the same one where you saw the error):
+pip install spacy
+This may take ~1–2 minutes.✅ Step 2 — Download the language model
+After spaCy installs successfully, run:
+python -m spacy download en_core_web_sm
+You should now see something like:
+✔ Download and installation successful
+
+
+PROMPT: How do I use plt.savefig() and its parameters
+OUTPUT: Here’s a tiny crash course on plt.savefig 👇
+1. Basic idea
+plt.savefig saves the current figure to a file.
+plt.savefig("figure.png")
+Saves to the current working directory.
+Format is taken from the extension (.png, .pdf, .svg, …).
+2. Most useful parameters
+plt.savefig("path/to/file.png",
+            dpi=300,            # resolution (higher = sharper)
+            bbox_inches="tight",# trims extra whitespace
+            transparent=False)  # True = no background
+dpi: 100–150 for quick plots, 300 for reports.
+bbox_inches="tight": prevents axis labels from being cut off.
+transparent=True: useful for slides / overlaying.
+3. Saving into a specific folder
+From a notebook in notebooks/, to save into repo-root outputs/:
+import os
+os.makedirs("../outputs", exist_ok=True)
+
+plt.savefig("../outputs/my_plot.png", dpi=300, bbox_inches="tight")
+That’s basically all you need 95% of the time.
+
+PROMPT: What color maps in seaborn go from orange to purple
+
+OUTPUT: Good question! Here are the seaborn colormaps that go from orange to purple (or similar warm-to-cool transitions):
+Seaborn Perceptually Uniform Colormaps
+1. "rocket" - Dark purple → orange/peach
+
+Starts: Dark purple/black
+Ends: Light orange/peach
+Good for: Sequential data with warm highlights
+
+2. "mako" - Dark purple → light green
+
+Starts: Dark purple/black
+Ends: Light green/mint
+Good for: Sequential data with cool tones
+
+3. "flare" - Dark purple → orange/yellow
+
+Starts: Dark purple
+Ends: Bright orange/yellow
+Good for: Sequential data, similar to rocket but brighter
 
 [nlp-P03.ipynb for Part 03 of proj02-nlp.ipynb]
 PROMPT:
@@ -16,3 +73,4 @@ OUTPUT:
 [nlp-P04.ipynb for Part 04 of proj02-nlp.ipynb]
 PROMPT:
 OUTPUT:
+
