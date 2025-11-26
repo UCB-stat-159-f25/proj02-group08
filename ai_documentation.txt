@@ -1,12 +1,18 @@
 
 [nlp-P01.ipynb for Part 01 of proj02-nlp.ipynb]
+
 PROMPT: if I want to pull a repository with changes that is already if my Jupyter hub what do I do? do I use git pull https://github.com/UCB-stat-159-f25/proj02-group08.git?
+
 OUTPUT: DO NOT use the full GitHub URL.
 You just run: git pull
 Used AI to gramatically correct description of outputs. Insert comma etc. 
 
+
+
 [nlp-P02.ipynb for Part 02 of proj02-nlp.ipynb]
+
 PROMPT: I am getting this error on Jupyter Datahub: (nlp-P02)jupyter-ckshimazaki[proj02-group08]> python -m spacy download en_core_web_sm /srv/conda/envs/notebook/bin/python: No module named spacy How do I resolve it 
+
 OUTPUT: You’re getting:
 No module named spacy
 This means your conda environment inside Datahub does NOT have spaCy installed, even though the project PDF assumes it.
@@ -22,6 +28,7 @@ You should now see something like:
 
 
 PROMPT: How do I use plt.savefig() and its parameters
+
 OUTPUT: Here’s a tiny crash course on plt.savefig 👇
 1. Basic idea
 plt.savefig saves the current figure to a file.
@@ -43,6 +50,7 @@ os.makedirs("../outputs", exist_ok=True)
 
 plt.savefig("../outputs/my_plot.png", dpi=300, bbox_inches="tight")
 That’s basically all you need 95% of the time.
+
 
 PROMPT: What color maps in seaborn go from orange to purple
 
@@ -67,11 +75,14 @@ Ends: Bright orange/yellow
 Good for: Sequential data, similar to rocket but brighter
 
 [nlp-P03.ipynb for Part 03 of proj02-nlp.ipynb]
+
 PROMPT:I activated my conda env but my notebook is not using it. How do I make my notebook recognize the environment as a kernel?
+
 OUTPUT: 
 To use your conda environment in Jupyter, first activate it in the terminal, then register it with:
 python -m ipykernel install --user --name sotu --display-name 'IPython - sotu'
 After that, open your notebook and switch to this kernel through Kernel → Change Kernel. This ensures the notebook uses your environment and the packages installed in it.
+
 [nlp-P04.ipynb for Part 04 of proj02-nlp.ipynb]
 PROMPT:
 OUTPUT:
