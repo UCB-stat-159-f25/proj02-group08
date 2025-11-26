@@ -235,7 +235,7 @@ sou_step01_year_2000_and_above_text
 ## save_the_processed_to_csv(...)
 ####################
 
-ou_step02_year_2000_above_text_nlp = [nlp(speech) for speech in tqdm(sou_step01_year_2000_and_above_text)]
+sou_step02_year_2000_above_text_nlp = [nlp(speech) for speech in tqdm(sou_step01_year_2000_and_above_text)]
 # save_the_processed_data_to_csv(data=sou_step02_year_2000_above_text_nlp, filepath=part00.DIR_DATA_PROCESSED / "sou_step02_year_2000_above_text_nlp.csv")
 sou_step02_year_2000_above_text_nlp;
 
@@ -611,10 +611,6 @@ save_the_vectorized_data_to_csv(data_tfidf_matrix=step10_vectorized_raw_docs_tfi
 # - Second use seaborn heatmap with a log-scaled color axis to generate the second chart
 
 # %%
-# Hint - vectorized_docs is a sparse matrix whose rows are speeches and columns are tokens, with each
-# value being a TF-IDF score. Densify this array first, and then plot using seaborn.
-
-# %%
 # https://scikit-learn.org/0.17/modules/generated/sklearn.decomposition.PCA.html
 
 # Step 1: Set PCA to find first 2 principal components
@@ -630,7 +626,7 @@ step11_pca_result_df = pd.DataFrame(
     columns=['PC1', 'PC2']
 )
 step11_pca_result_df
-save_the_vectorized_data_to_csv(
+# save_the_vectorized_data_to_csv(...)
 
 ####################
 ## MOVE THIS BLOCK TO part02.py
@@ -655,6 +651,14 @@ plt.scatter(step11_pca_result_df['PC1'], step11_pca_result_df['PC2'], alpha=0.7,
 
 plt.figure(figsize=(12, 8))
 sns.scatterplot(step11_pca_result_df, x="PC1", y="PC2");
+
+# %%
+# Hint - vectorized_docs is a sparse matrix whose rows are speeches and columns are tokens, with each
+# value being a TF-IDF score. Densify this array first, and then plot using seaborn.
+
+
+# read_csv(...)
+# sns.
 
 # %% [markdown]
 # #### Get the TF-IDF value for certain words and documents
