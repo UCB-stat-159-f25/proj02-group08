@@ -14,15 +14,7 @@
 # ---
 
 # %% [markdown]
-# # Project 2 - Part 4: Choose your own advecnture! (7 Points; Optional for Extra Credit)
-#
-#
-
-# %% [markdown]
-# Reference:
-#
-# - Topic evolution over time - see https://maartengr.github.io/BERTopic/getting_started/topicsovertime/topicsovertime.html#visualization 
-#
+# # Part 4: Choose your own advecnture! Dynamic Topic Modeling
 
 # %%
 ####################

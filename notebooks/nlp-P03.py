@@ -14,19 +14,7 @@
 # ---
 
 # %% [markdown]
-# # Project 2  Part 3: Advanced Text Processing - LDA and BERTopic Topic Modeling (20 pts)
-#
-
-# %% [markdown]
-# **Resources:**
-# - LDA:
-#     - https://medium.com/sayahfares19/text-analysis-topic-modelling-with-spacy-gensim-4cd92ef06e06 
-#     - https://www.kaggle.com/code/faressayah/text-analysis-topic-modeling-with-spacy-gensim#%F0%9F%93%9A-Topic-Modeling (code for previous post)
-#     - https://towardsdatascience.com/topic-modelling-in-python-with-spacy-and-gensim-dc8f7748bdbf/ 
-# - BERTopic:
-#     - https://maartengr.github.io/BERTopic/getting_started/visualization/visualize_documents.html#visualize-documents-with-plotly 
-#     - https://maartengr.github.io/BERTopic/getting_started/visualization/visualize_topics.html 
-#
+# # Part 3: Advanced Text Processing - LDA and BERTopic Topic Modeling
 
 # %%
 from spacy import displacy

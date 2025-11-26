@@ -14,7 +14,7 @@
 # ---
 
 # %% [markdown]
-# # Project 2 - Part 1: Data Loading and Initial Exploration (15 pts)
+# # Part 1: Data Loading and Initial Exploration
 
 # %% [markdown]
 # ### Read Data

@@ -14,10 +14,7 @@
 # ---
 
 # %% [markdown]
-# # Project 2 - Part 2: Simple Text Processing - Tokenization, Lemmatization, Word Frequency, Vectorization
-#
-#
-#
+# # Part 2: Simple Text Processing - Tokenization, Lemmatization, Word Frequency, Vectorization
 
 # %% [markdown]
 # ### Read Data
