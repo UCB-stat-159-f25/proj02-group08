@@ -15,6 +15,9 @@ ENV_NAME=sotu
 env-create:
 	conda env create -f environment.yml
 
+env-remove:
+	conda env remove -n $(ENV_NAME)
+
 env-update:
 	conda env update -f environment.yml --prune
 
@@ -41,14 +44,16 @@ env-package-check:
 env-activate:
 	@echo "Run the following command manually to TURN ON the environment:"
 	@echo "    conda activate sotu"
+	@echo "    python -m spacy download en_core_web_sm"
 #	conda activate $(ENV_NAME)
+#   python -m spacy download en_core_web_sm
 
 env-deactivate:
 	@echo "Run the following command manually to TURN OFF the environment:"
 	@echo "    conda deactivate"
 #	conda deactivate
 
-.PHONY: env-create env-update env-update-environment-yml env-run-jupyterlab env-list env-pacakge-install env-package-check env-activate env-deactivate
+.PHONY: env-create env-remove env-update env-update-environment-yml env-run-jupyterlab env-list env-pacakge-install env-package-check env-activate env-deactivate
 
 
 ###
@@ -266,6 +271,7 @@ all:
 help:
 	@echo "01. Environment targets:"
 	@echo "  env-create                	- Create the environment from environment.yml"
+	@echo "  env-remove                	- Remove the 'sotu' environment"
 	@echo "  env-update                 - Update, install, and clean up packages INTO the environment"
 	@echo "  env-update-environment-yml - Update and save the environment packages INTO the environment.yml file"
 	@echo "  env-run-jupyterlab         - Launch JupyterLab using the environment"
