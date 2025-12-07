@@ -11,6 +11,38 @@ Project 02 for Group 08
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-f25/proj02-group08/HEAD)
 
 
+
+## Get Started!
+
+```bash
+(base) (main)jupyter-dami[proj02-group08]> make env-activate
+Run the following command manually to TURN ON the environment:
+    conda activate sotu
+    python -m spacy download en_core_web_sm
+```
+
+```bash
+(base) (main)jupyter-dami[proj02-group08]> make env-activate
+Run the following command manually to TURN ON the environment:
+    conda activate sotu
+    python -m spacy download en_core_web_sm
+```
+
+```bash
+(base) (main)jupyter-dami[proj02-group08]> conda activate sotu
+```
+
+```bash
+(sotu) (main)jupyter-dami[proj02-group08]> python -m spacy download en_core_web_sm
+Collecting en-core-web-sm==3.8.0
+  Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 55.2 MB/s  0:00:00
+Installing collected packages: en-core-web-sm
+Successfully installed en-core-web-sm-3.8.0
+✔ Download and installation successful
+You can now load the package via spacy.load('en_core_web_sm')
+```
+
 ## Available Make Directives 
 
 ```bash
