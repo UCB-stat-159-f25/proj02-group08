@@ -22,13 +22,6 @@ Run the following command manually to TURN ON the environment:
 ```
 
 ```bash
-(base) (main)jupyter-dami[proj02-group08]> make env-activate
-Run the following command manually to TURN ON the environment:
-    conda activate sotu
-    python -m spacy download en_core_web_sm
-```
-
-```bash
 (base) (main)jupyter-dami[proj02-group08]> conda activate sotu
 ```
 
