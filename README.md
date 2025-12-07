@@ -27,6 +27,23 @@ Run the following command manually to TURN ON the environment:
 ```
 
 ```bash
+(sotu) (main)jupyter-dami[proj02-group08]> pip install -e .
+Obtaining file:///home/jovyan/Projects/STAT_159_259/proj02-group08
+  Installing build dependencies ... done
+  Checking if build backend supports build_editable ... done
+  Getting requirements to build editable ... done
+  Preparing editable metadata (pyproject.toml) ... done
+Requirement already satisfied: tqdm in /home/jovyan/.local/share/envs/sotu/lib/python3.13/site-packages (from proj02-group08==0.1.0) (4.67.1)
+Building wheels for collected packages: proj02-group08
+  Building editable for proj02-group08 (pyproject.toml) ... done
+  Created wheel for proj02-group08: filename=proj02_group08-0.1.0-0.editable-py3-none-any.whl size=4913 sha256=de10a9f9e08af3322cfd7c9431fc7039afed305f95fe141be8e1fcde69107c49
+  Stored in directory: /tmp/pip-ephem-wheel-cache-qtf0m8zm/wheels/c2/d1/ed/1ea93e6806f75952ac4ee49e5810480ce1bd33b4064ce7a3ae
+Successfully built proj02-group08
+Installing collected packages: proj02-group08
+Successfully installed proj02-group08-0.1.0
+```
+
+```bash
 (sotu) (main)jupyter-dami[proj02-group08]> python -m spacy download en_core_web_sm
 Collecting en-core-web-sm==3.8.0
   Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl (12.8 MB)
