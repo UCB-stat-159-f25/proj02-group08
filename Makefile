@@ -44,6 +44,7 @@ env-package-check:
 env-activate:
 	@echo "Run the following command manually to TURN ON the environment:"
 	@echo "    conda activate sotu"
+	@echo "    pip install -e ."
 	@echo "    python -m spacy download en_core_web_sm"
 #	conda activate $(ENV_NAME)
 #   python -m spacy download en_core_web_sm
