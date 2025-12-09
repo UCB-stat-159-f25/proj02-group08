@@ -15,6 +15,10 @@ Project 02 for Group 08
 ## Get Started!
 
 ```bash
+(base) (main)jupyter-dami[proj02-group08]> make env-create
+```
+
+```bash
 (base) (main)jupyter-dami[proj02-group08]> make env-activate
 Run the following command manually to TURN ON the environment:
     conda activate sotu
