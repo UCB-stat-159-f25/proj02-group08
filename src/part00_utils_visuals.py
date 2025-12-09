@@ -60,22 +60,21 @@ import pathlib as pl
 # DIR_TESTS           = HOME / PROJECTS / STAT / PROJ_GRP / "tests"
 
 
-HOME                = pl.Path.home()
+# HOME                = pl.Path.home()
+HOME                = pl.Path("..")
+CURRENT_DIR         = pl.Path(".")
 # PROJ_GRP            = "proj02-group08"
 
 DIR_CODE            = HOME / "code"
 DIR_DATA            = HOME / "data" 
-DIR_DATA_00_RAW        = DIR_DATA / "00_raw"
-DIR_DATA_01_PROCESSED  = DIR_DATA / "01_processed"
-DIR_DATA_02_VECTORIZED = DIR_DATA / "02_vectorized"
-DIR_DATA_03_LDA_BERT= DIR_DATA / "03_processed_lda_bert"
+DIR_DATA_RAW        = DIR_DATA / "00_raw"
+DIR_DATA_PROCESSED  = DIR_DATA / "01_processed"
+DIR_DATA_VECTORIZED = DIR_DATA / "02_vectorized"
 DIR_DOCS            = HOME / "docs"
 DIR_MISC            = HOME / "misc"
 DIR_NOTEBOOKS       = HOME / "notebooks"
 DIR_OUTPUTS         = HOME / "outputs"
 DIR_TESTS           = HOME / "tests"
-
-CSV_SOTU = "SOTU.csv"
 
 ###
 # Plots
