@@ -7,9 +7,7 @@ Project 02 for Group 08
 - Colby Zhang
 - Olorundamilola Kazeem
 
-
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-f25/proj02-group08/HEAD)
-
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-f25/proj02-group08/HEAD?urlpath=%2Fdoc%2Ftree%2Fnotebooks)
 
 
 ## Get Started!
