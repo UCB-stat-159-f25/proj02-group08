@@ -30,9 +30,9 @@ from src import part00_utils_visuals as part00
 # import src.part00_utils_visuals as part00
 
 from src import part01
+# import src.part01 as part01
 
 part00.plot_style(style=part00.PLOT_STYLE_SEABORN)
-
 
 sou        = part00.pd.read_csv(part00.DIR_DATA_00_RAW / part00.CSV_SOTU)
 sou
@@ -54,7 +54,7 @@ import spacy
 from tqdm import tqdm
 from collections import Counter
 
-spacy.cli.download("en_core_web_sm")
+# spacy.cli.download("en_core_web_sm")
 
 nlp = spacy.load("en_core_web_sm")
 
@@ -141,3 +141,5 @@ topics_over_time
 TOP_N_TOPICS = 10
 
 step07_topic_model.visualize_topics_over_time(topics_over_time, top_n_topics=TOP_N_TOPICS)
+
+# %%
